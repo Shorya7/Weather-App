@@ -34,6 +34,7 @@ const searchLocation=(event)=>{
           </div>
           <div className='desc'>
             {data.weather?<p>{data.weather[0].main}</p>:null}
+            {/* {data.weather?<img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" alt='cloud'></img>:null} */}
           </div>
         </div>
         {data.name===undefined?null:
