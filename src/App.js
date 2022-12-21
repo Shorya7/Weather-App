@@ -27,7 +27,7 @@ const searchLocation=(event)=>{
       <div className='container'>
         <div className='top'>
           <div className='location'>
-            <p>{data.name} , {data.sys?<p>{data.sys.country}</p>:null}</p>
+            <p>{data.name} {data.sys?<p> , {data.sys.country}</p>:null}</p>
           </div>
           <div className='temp'>
             {data.main?<h1>{(data.main.temp-273).toFixed(2)}&deg;C</h1>:null}
