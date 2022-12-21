@@ -13,6 +13,7 @@ const searchLocation=(event)=>{
     setData(response.data)
     console.log(response.data)
   })
+  setLocation('')
 }
 }
   return (
@@ -26,29 +27,31 @@ const searchLocation=(event)=>{
       <div className='container'>
         <div className='top'>
           <div className='location'>
-            <p>Ghaziabad , IN</p>
+            <p>{data.name} , {data.sys?<p>{data.sys.country}</p>:null}</p>
           </div>
           <div className='temp'>
-            <h1>12&deg;C</h1>
+            {data.main?<h1>{(data.main.temp-273).toFixed(2)}&deg;C</h1>:null}
           </div>
           <div className='desc'>
-            <p>Partly Cloudy</p>
+            {data.weather?<p>{data.weather[0].main}</p>:null}
           </div>
         </div>
+        {data.name===undefined?null:
         <div className='bottom'>
           <div className='feels'>
-            <p className='bold'>12&deg;C</p>
+          {data.main?<p className='bold'>{(data.main.feels_like-273).toFixed(2)}&deg;C</p>:null}
             <p>Feels Like</p>
           </div>
           <div className='humidity'>
-            <p className='bold'>94%</p>
+          {data.main?<p className='bold'>{data.main.humidity}%</p>:null}
             <p>Humidity</p>
           </div>
           <div className='wind'>
-            <p className='bold'>1 km/h</p>
+          {data.wind?<p className='bold'>{data.wind.speed} Km/h</p>:null}
             <p>Wind Speed</p>
           </div>
         </div>
+}
       </div>
     </div>
   );
