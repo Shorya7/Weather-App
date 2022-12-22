@@ -121,7 +121,7 @@ h1 {
     font-size: 1.4rem;
   }
 }
-@media (max-width:390px){
+@media (max-width:400px){
   .app .bottom p{
     font-size: 1.1rem;
   }
