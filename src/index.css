@@ -106,3 +106,35 @@ h1 {
 .bold{
   font-weight: 700;
 }
+
+@media (max-width:450px){
+  .location p{
+    font-size: 1.5rem;
+  }
+  .temp h1{
+    font-size: 4.5rem;
+  }
+  .app .desc p{
+    font-size: 1.7rem;
+  }
+  .app .bottom p{
+    font-size: 1.4rem;
+  }
+}
+@media (max-width:375px){
+  .app .bottom p{
+    font-size: 1.1rem;
+  }
+}
+@media (max-width:320px){
+  .app .bottom p{
+    font-size: 0.9rem;
+  }
+  .temp h1{
+    font-size: 3.5rem;
+  }
+  .app .search input{
+    width: 80vw;
+    font-size: 1.2rem;
+  }
+}

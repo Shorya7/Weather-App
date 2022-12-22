@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import axios from 'axios';
 import './App.css';
 
@@ -13,9 +13,16 @@ const searchLocation=(event)=>{
     setData(response.data)
     console.log(response.data)
   })
+  .catch((err)=>{
+    alert("Please enter a valid location")
+  })
   setLocation('')
 }
 }
+useEffect(() => {
+setLocation("Delhi")
+},[])
+
   return (
     <div className="app">
       <div className='search'>
