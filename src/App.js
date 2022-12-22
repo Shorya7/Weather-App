@@ -19,9 +19,9 @@ const searchLocation=(event)=>{
   setLocation('')
 }
 }
-useEffect(() => {
-setLocation("Delhi")
-},[])
+// useEffect(() => {
+// setLocation("Delhi")
+// },[])
 
   return (
     <div className="app">
