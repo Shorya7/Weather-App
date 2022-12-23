@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import axios from 'axios';
 import './App.css';
 
@@ -6,7 +6,7 @@ function App() {
 const [data,setData]=useState({});
 const [location,setLocation]=useState('');
 const url=`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=9c0d66bdd910e189aed944e94ecac554`;
-
+const defurl=`https://api.openweathermap.org/data/2.5/weather?q=New Delhi&appid=9c0d66bdd910e189aed944e94ecac554`;
 const searchLocation=(event)=>{
   if(event.key==='Enter'){
   axios.get(url).then((response)=>{
@@ -19,9 +19,12 @@ const searchLocation=(event)=>{
   setLocation('')
 }
 }
-// useEffect(() => {
-// setLocation("Delhi")
-// },[])
+useEffect(() => {
+  axios.get(defurl).then((response)=>{
+    setData(response.data)
+    console.log(response.data)
+  })
+},[defurl])
 
   return (
     <div className="app">
