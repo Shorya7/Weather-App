@@ -47,6 +47,7 @@ const search1=(event)=>{
       </div>
       <div className='container'>
         <div className='top'>
+          <div className='top-content'>
           <div className='location'>
             <p>{data.name} {data.sys?<p> , {data.sys.country}</p>:null}</p>
           </div>
@@ -56,6 +57,7 @@ const search1=(event)=>{
           <div className='desc'>
             {data.weather?<p>{data.weather[0].main}</p>:null}
             {/* {data.weather?<img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" alt='cloud'></img>:null} */}
+          </div>
           </div>
         </div>
         {data.name===undefined?null:
