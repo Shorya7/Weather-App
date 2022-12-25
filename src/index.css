@@ -43,7 +43,7 @@ h1 {
 
 .app .search {
   text-align: center;
-  padding: 1rem;
+  padding: 2.1rem;
 }
 
 .app input {
@@ -53,8 +53,22 @@ h1 {
   border: 1px solid rgba(255,255,255, 0.8);
   background: rgba(255,255,255, 0.1);
   color: #f8f8f8;
+  width: 500px;
 }
-
+.app .search .click{
+  margin-left: 10px;
+  padding: 12px 36px;
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255, 0.8);
+  background: rgba(255,255,255, 0.1);
+  font-size: 1.2rem;
+  color: #f8f8f8;
+}
+.app .search .click:hover{
+  cursor: pointer;
+  background: rgba(214, 218, 221, 0.301);
+  font-weight: 600;
+}
 ::placeholder {
   color: #f8f8f8;
 }

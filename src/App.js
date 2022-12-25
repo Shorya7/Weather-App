@@ -8,17 +8,18 @@ const [location,setLocation]=useState('');
 const url=`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=9c0d66bdd910e189aed944e94ecac554`;
 const defurl=`https://api.openweathermap.org/data/2.5/weather?q=New Delhi&appid=9c0d66bdd910e189aed944e94ecac554`;
 const searchLocation=(event)=>{
-  if(event.key==='Enter'){
+  if(!event)
+  return
   axios.get(url).then((response)=>{
     setData(response.data)
-    console.log(response.data)
+    //console.log(response.data)
   })
   .catch((err)=>{
     alert("Please enter a valid location")
   })
   setLocation('')
 }
-}
+
 useEffect(() => {
   axios.get(defurl).then((response)=>{
     setData(response.data)
@@ -26,13 +27,23 @@ useEffect(() => {
   })
 },[defurl])
 
+const search2=()=>{
+  searchLocation(location)
+}
+const search1=(event)=>{
+  if(event.key==='Enter'){
+  searchLocation(location)
+  }
+}
+
   return (
     <div className="app">
       <div className='search'>
         <input value={location} onChange={event=>setLocation(event.target.value)}
-        onKeyPress={searchLocation}
+        onKeyPress={search1}
         type="text"
         placeholder='Enter Location'/>
+        <button type='button' className='click' onClick={search2}>Search</button>
       </div>
       <div className='container'>
         <div className='top'>
