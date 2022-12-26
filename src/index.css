@@ -34,6 +34,7 @@ h1 {
 .app:before {
   content: '';
   background: url('./sunset.jpg') no-repeat center/cover;
+  /* background: url('https://cdn.wallpapersafari.com/1/47/tLQhJy.jpg') no-repeat center/cover; */
   position: absolute;
   width: 100%;
   height: 100%;

@@ -7,8 +7,10 @@ import {
   BsFillCloudSunFill,
   BsFillCloudLightningRainFill,
   BsFillCloudFog2Fill,
-  BsFillCloudHaze2Fill,
+  BsFillCloudHaze2Fill
 } from "react-icons/bs";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [data, setData] = useState({});
@@ -17,14 +19,16 @@ function App() {
   const defurl = `https://api.openweathermap.org/data/2.5/weather?q=New Delhi&appid=9c0d66bdd910e189aed944e94ecac554`;
   const searchLocation = (event) => {
     if (!event) return;
+    toast.info(`Fetching weather for ${event}`)
     axios
       .get(url)
       .then((response) => {
         setData(response.data);
+        toast.success(`Successfully fetched weather for ${event}`)
         //console.log(response.data)
       })
       .catch((err) => {
-        alert("Please enter a valid location");
+        toast.error(`${event} is not a valid location`);
       });
     setLocation("");
   };
@@ -32,7 +36,7 @@ function App() {
   useEffect(() => {
     axios.get(defurl).then((response) => {
       setData(response.data);
-      console.log(response.data);
+      //console.log(response.data);
     });
   }, [defurl]);
 
@@ -48,7 +52,7 @@ function App() {
   const Cloud = (event) => {
     switch (event.toLowerCase()) {
       case "snow":
-        return <BsCloudSnowFill />;
+        return <BsCloudSnowFill />;       
       case "rain":
         return <BsFillCloudLightningRainFill />;
       case "fog":
@@ -65,7 +69,6 @@ function App() {
         return <BsCloudsFill />;
     }
   };
-
   return (
     <div className="app">
       <div className="search">
@@ -99,6 +102,7 @@ function App() {
           </div>
           {data.weather ? (
             <div className="icon">{Cloud(data.weather[0].main)}</div>
+         
           ) : null}
         </div>
         {data.name === undefined ? null : (
@@ -126,6 +130,7 @@ function App() {
           </div>
         )}
       </div>
+      <ToastContainer autoClose={4000} theme="colored" newestOnTop={true}/>
     </div>
   );
 }
